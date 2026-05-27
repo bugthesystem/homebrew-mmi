@@ -2,7 +2,7 @@ class Mmi < Formula
   desc "Me, Myself and I — strip AI trails from your git commits"
   homepage "https://github.com/bugthesystem/mmi"
   url "https://github.com/bugthesystem/mmi/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "9b083269a71d4414eef02cdb12212ec0371198f49cb1dbe96c9ee74760bb1905"
+  sha256 "d44697efdc0e4017bd972f86c47890f5a12c874e4aac347d5169158073e45401"
   license "MIT"
   head "https://github.com/bugthesystem/mmi.git", branch: "main"
 
