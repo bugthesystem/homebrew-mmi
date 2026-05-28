@@ -1,8 +1,8 @@
 class Mmi < Formula
   desc "Me, Myself and I — strip AI trails from your git commits"
   homepage "https://github.com/bugthesystem/mmi"
-  url "https://github.com/bugthesystem/mmi/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "d44697efdc0e4017bd972f86c47890f5a12c874e4aac347d5169158073e45401"
+  url "https://github.com/bugthesystem/mmi/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "c6a7d8a321c768dd52646edac1a72470c28af8a48a33c2db5c8dc85b66009a09"
   license "MIT"
   head "https://github.com/bugthesystem/mmi.git", branch: "main"
 
@@ -10,6 +10,7 @@ class Mmi < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "docs/mmi.1"
   end
 
   test do
@@ -31,5 +32,8 @@ class Mmi < Formula
     shell_output("#{bin}/mmi check #{testpath}/msg.txt 2>&1", 1)
     (testpath/"clean.txt").write("feat: clean message\n")
     system bin/"mmi", "check", testpath/"clean.txt"
+
+    # Man page is installed and readable.
+    assert_path_exists man1/"mmi.1"
   end
 end
